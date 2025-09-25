@@ -22,9 +22,6 @@
 - [Development Tools & Workflow](#-development-tools--workflow)
 - [Frontend Terminology](#-frontend-terminology)
 
-
-
-
 ## 🛣️ Learning Path
 
 ### Phase 1: Foundation (Modules 01-03)

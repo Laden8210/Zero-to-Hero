@@ -3,9 +3,6 @@
 *A detailed, comprehensive guide to mastering modern frontend development*
 
 
-
-hello world
-
 ## 📖 Table of Contents
 - [Frontend Development Philosophy](#-frontend-development-philosophy)
 - [Learning Path](#-learning-path)

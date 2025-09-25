@@ -1,134 +1,89 @@
-# Advanced CSS Features
+# Advanced CSS Features - Comprehensive Guide
 
-## Introduction
-Modern CSS offers powerful features for creating sophisticated user interfaces. This lesson covers transitions, animations, transforms, filters, and other advanced CSS capabilities.
+## Introduction to Advanced CSS
 
-## Transitions and Animations
+### What are Advanced CSS Features?
+Advanced CSS features encompass modern capabilities that go beyond basic styling, including animations, transformations, filters, and dynamic properties that enable sophisticated user interfaces and interactions without JavaScript.
+
+### Why Learn Advanced CSS?
+- **Enhanced User Experience**: Create engaging, interactive interfaces
+- **Performance Benefits**: CSS animations are often more efficient than JavaScript
+- **Reduced JavaScript Dependency**: Handle visual effects purely with CSS
+- **Modern Web Standards**: Stay current with evolving web technologies
+- **Creative Expression**: Unlimited possibilities for visual design
+
+## CSS Transitions and Animations
 
 ### CSS Transitions
+
+#### What are CSS Transitions?
+CSS transitions enable smooth, gradual changes between property values over a specified duration, providing natural-feeling interface interactions.
+
+#### Implementation and Usage
 ```css
-/* Basic transition properties */
-.button {
-    background-color: #007bff;
-    color: white;
-    padding: 0.5rem 1rem;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    
-    /* Transition properties */
-    transition-property: background-color, transform, box-shadow;
-    transition-duration: 0.3s;
-    transition-timing-function: ease-in-out;
-    transition-delay: 0s;
-    
-    /* Shorthand */
-    transition: all 0.3s ease-in-out;
-}
-
-.button:hover {
-    background-color: #0056b3;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-/* Multiple transitions with different timings */
-.card {
-    background: white;
-    border-radius: 8px;
-    padding: 1rem;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    
-    transition: 
-        transform 0.2s ease-out,
-        box-shadow 0.3s ease-out,
-        background-color 0.1s ease-out;
-}
-
-.card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
-    background-color: #f8f9fa;
-}
-
-/* Transition with different timing functions */
+/* Basic Transition Properties */
 .element {
-    width: 100px;
-    height: 100px;
-    background: #007bff;
+    /* Properties to animate */
+    transition-property: background-color, transform;
     
-    transition: 
-        width 1s ease-in,
-        height 1s ease-out,
-        background-color 1s linear,
-        transform 1s ease-in-out;
+    /* Duration of transition */
+    transition-duration: 0.3s;
+    
+    /* Timing function (easing) */
+    transition-timing-function: ease-in-out;
+    
+    /* Delay before transition starts */
+    transition-delay: 0.1s;
+    
+    /* Shorthand syntax */
+    transition: all 0.3s ease-in-out 0.1s;
 }
 
 .element:hover {
-    width: 200px;
-    height: 200px;
-    background-color: #28a745;
-    transform: rotate(45deg);
+    background-color: #007bff;
+    transform: scale(1.1);
 }
 ```
 
+#### Benefits of CSS Transitions
+- **Smooth Interactions**: Eliminate jarring, instant changes
+- **Performance Optimized**: Hardware-accelerated by browsers
+- **Simple Implementation**: Easy to add to existing styles
+- **Progressive Enhancement**: Graceful degradation if unsupported
+
+#### Why Use Transitions?
+- Improve user experience with smooth state changes
+- Provide visual feedback for interactions
+- Create more polished, professional interfaces
+- Enhance perceived performance
+
 ### CSS Animations
+
+#### What are CSS Animations?
+CSS animations allow complex, multi-step animations using keyframes, enabling sophisticated motion design without JavaScript.
+
+#### Implementation and Usage
 ```css
-/* Keyframe animations */
-@keyframes slideIn {
-    from {
+/* Keyframe Definition */
+@keyframes slideInFromLeft {
+    0% {
         transform: translateX(-100%);
         opacity: 0;
     }
-    to {
+    70% {
+        transform: translateX(10px);
+    }
+    100% {
         transform: translateX(0);
         opacity: 1;
     }
 }
 
-@keyframes bounce {
-    0%, 20%, 53%, 80%, 100% {
-        transform: translate3d(0, 0, 0);
-    }
-    40%, 43% {
-        transform: translate3d(0, -30px, 0);
-    }
-    70% {
-        transform: translate3d(0, -15px, 0);
-    }
-    90% {
-        transform: translate3d(0, -4px, 0);
-    }
-}
-
-@keyframes pulse {
-    0% {
-        transform: scale(1);
-    }
-    50% {
-        transform: scale(1.05);
-    }
-    100% {
-        transform: scale(1);
-    }
-}
-
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translate3d(0, 40px, 0);
-    }
-    to {
-        opacity: 1;
-        transform: translate3d(0, 0, 0);
-    }
-}
-
-/* Animation properties */
+/* Animation Application */
 .animated-element {
-    animation-name: slideIn;
-    animation-duration: 0.5s;
-    animation-timing-function: ease-out;
+    animation-name: slideInFromLeft;
+    animation-duration: 0.8s;
+    animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
     animation-delay: 0.2s;
     animation-iteration-count: 1;
     animation-direction: normal;
@@ -136,412 +91,485 @@ Modern CSS offers powerful features for creating sophisticated user interfaces. 
     animation-play-state: running;
     
     /* Shorthand */
-    animation: slideIn 0.5s ease-out 0.2s 1 normal both;
-}
-
-/* Hover animations */
-.hover-bounce:hover {
-    animation: bounce 1s infinite;
-}
-
-.hover-pulse:hover {
-    animation: pulse 2s infinite;
-}
-
-/* Loading animations */
-.loading-spinner {
-    width: 40px;
-    height: 40px;
-    border: 4px solid #f3f3f3;
-    border-top: 4px solid #007bff;
-    border-radius: 50%;
-    animation: spin 1s linear infinite;
-}
-
-@keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
+    animation: slideInFromLeft 0.8s ease-out 0.2s 1 normal both;
 }
 ```
+
+#### Animation Properties Explained
+- **animation-name**: References the @keyframes rule
+- **animation-duration**: How long the animation takes
+- **animation-timing-function**: Pace of animation (easing)
+- **animation-delay**: Time before animation starts
+- **animation-iteration-count**: How many times to repeat
+- **animation-direction**: normal, reverse, alternate, alternate-reverse
+- **animation-fill-mode**: Styles applied before/after animation
+- **animation-play-state**: running or paused
+
+#### Benefits of CSS Animations
+- **Complex Sequences**: Multi-step animations with precise control
+- **Performance**: Better performance than JavaScript animations
+- **Maintainable**: Centralized animation logic in CSS
+- **Reusable**: Apply same animation to multiple elements
+
+#### Why Use CSS Animations?
+- Create engaging loading states and micro-interactions
+- Guide user attention through motion
+- Enhance storytelling and user onboarding
+- Provide visual feedback for processes
 
 ## Transform and 3D Effects
 
 ### 2D Transforms
+
+#### What are 2D Transforms?
+2D transforms allow manipulation of elements in two-dimensional space, including translation, rotation, scaling, and skewing.
+
+#### Implementation and Usage
 ```css
-/* Basic 2D transforms */
-.transform-demo {
-    width: 100px;
-    height: 100px;
-    background: #007bff;
-    margin: 20px;
-    transition: transform 0.3s ease;
-}
-
-/* Translate */
-.translate-x:hover {
-    transform: translateX(20px);
-}
-
-.translate-y:hover {
-    transform: translateY(-20px);
-}
-
-.translate-xy:hover {
-    transform: translate(20px, -20px);
-}
-
-/* Rotate */
-.rotate:hover {
+.transform-examples {
+    /* Translate - Move element */
+    transform: translate(100px, 50px);
+    transform: translateX(100px);
+    transform: translateY(50px);
+    
+    /* Rotate - Spin element */
     transform: rotate(45deg);
-}
-
-/* Scale */
-.scale:hover {
-    transform: scale(1.2);
-}
-
-.scale-x:hover {
-    transform: scaleX(1.5);
-}
-
-.scale-y:hover {
+    
+    /* Scale - Resize element */
+    transform: scale(1.5);
+    transform: scaleX(1.2);
     transform: scaleY(0.8);
-}
-
-/* Skew */
-.skew:hover {
-    transform: skew(15deg, 5deg);
-}
-
-/* Multiple transforms */
-.complex-transform:hover {
-    transform: translate(20px, -20px) rotate(45deg) scale(1.2);
-}
-
-/* Transform origin */
-.transform-origin {
-    transform-origin: center center;
-}
-
-.transform-origin-top-left:hover {
-    transform: rotate(45deg);
+    
+    /* Skew - Distort element */
+    transform: skew(15deg, 10deg);
+    transform: skewX(15deg);
+    transform: skewY(10deg);
+    
+    /* Multiple transforms */
+    transform: translate(50px, 50px) rotate(45deg) scale(1.2);
+    
+    /* Transform origin - Change pivot point */
+    transform-origin: center center; /* Default */
     transform-origin: top left;
+    transform-origin: 50px 50px;
 }
 ```
+
+#### Benefits of 2D Transforms
+- **Hardware Acceleration**: GPU-accelerated for smooth performance
+- **Non-Destructive**: Don't affect document flow
+- **Combination**: Multiple transforms can be combined
+- **Smooth Animations**: Perfect for transition and animation
+
+#### Why Use 2D Transforms?
+- Create interactive hover effects
+- Build complex layouts without affecting flow
+- Animate elements smoothly
+- Create visual hierarchies and depth
 
 ### 3D Transforms
+
+#### What are 3D Transforms?
+3D transforms extend 2D capabilities into three-dimensional space, enabling perspective, rotation, and translation along the Z-axis.
+
+#### Implementation and Usage
 ```css
-/* 3D transform container */
-.transform-3d-container {
-    perspective: 1000px;
+/* 3D Container Setup */
+.scene {
+    perspective: 1000px; /* Depth perception */
     perspective-origin: center center;
 }
 
-/* 3D transforms */
-.card-3d {
-    width: 200px;
-    height: 200px;
-    background: linear-gradient(45deg, #007bff, #28a745);
-    margin: 50px auto;
+/* 3D Element */
+.element-3d {
+    transform-style: preserve-3d; /* Maintain 3D context for children */
     transition: transform 0.6s ease;
-    transform-style: preserve-3d;
 }
 
-.card-3d:hover {
-    transform: rotateY(180deg);
+.element-3d:hover {
+    transform: rotateY(180deg) translateZ(100px);
 }
 
-/* Card flip effect */
-.flip-card {
-    width: 300px;
-    height: 200px;
-    perspective: 1000px;
-}
-
-.flip-card-inner {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    text-align: center;
-    transition: transform 0.6s;
-    transform-style: preserve-3d;
-}
-
-.flip-card:hover .flip-card-inner {
-    transform: rotateY(180deg);
-}
-
-.flip-card-front,
-.flip-card-back {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    backface-visibility: hidden;
-    border-radius: 8px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    font-size: 1.2rem;
-}
-
-.flip-card-front {
-    background: #007bff;
-}
-
-.flip-card-back {
-    background: #28a745;
-    transform: rotateY(180deg);
-}
-
-/* 3D cube */
-.cube-container {
-    perspective: 1000px;
-    perspective-origin: center center;
-}
-
-.cube {
-    width: 100px;
-    height: 100px;
-    position: relative;
-    transform-style: preserve-3d;
-    animation: rotateCube 6s infinite linear;
-}
-
-.cube-face {
-    position: absolute;
-    width: 100px;
-    height: 100px;
-    background: rgba(0, 123, 255, 0.8);
-    border: 2px solid #007bff;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    font-weight: bold;
-}
-
-.cube-face:nth-child(1) { transform: rotateY(0deg) translateZ(50px); }
-.cube-face:nth-child(2) { transform: rotateY(90deg) translateZ(50px); }
-.cube-face:nth-child(3) { transform: rotateY(180deg) translateZ(50px); }
-.cube-face:nth-child(4) { transform: rotateY(-90deg) translateZ(50px); }
-.cube-face:nth-child(5) { transform: rotateX(90deg) translateZ(50px); }
-.cube-face:nth-child(6) { transform: rotateX(-90deg) translateZ(50px); }
-
-@keyframes rotateCube {
-    0% { transform: rotateX(0deg) rotateY(0deg); }
-    100% { transform: rotateX(360deg) rotateY(360deg); }
+/* 3D Transform Functions */
+.three-d-element {
+    /* 3D Translation */
+    transform: translate3d(100px, 50px, 200px);
+    transform: translateZ(100px);
+    
+    /* 3D Rotation */
+    transform: rotate3d(1, 1, 1, 45deg);
+    transform: rotateX(45deg);
+    transform: rotateY(45deg);
+    transform: rotateZ(45deg);
+    
+    /* 3D Scale */
+    transform: scale3d(1.2, 1.2, 1.5);
+    
+    /* Perspective */
+    transform: perspective(500px) rotateY(45deg);
 }
 ```
+
+#### Benefits of 3D Transforms
+- **Realistic Effects**: True three-dimensional transformations
+- **Depth Perception**: Create spatial relationships
+- **Immersive Experiences**: Enhanced visual engagement
+- **Performance**: Hardware-accelerated 3D rendering
+
+#### Why Use 3D Transforms?
+- Create card flip animations
+- Build interactive 3D interfaces
+- Enhance product showcases
+- Create engaging portfolio elements
 
 ## CSS Filters and Effects
 
 ### Filter Effects
+
+#### What are CSS Filters?
+CSS filters apply graphical effects like blur, color adjustment, and contrast to elements, similar to photo editing software.
+
+#### Implementation and Usage
 ```css
-/* Basic filter effects */
-.filter-demo {
-    width: 200px;
-    height: 200px;
-    background: url('image.jpg') center/cover;
-    margin: 20px;
-    transition: filter 0.3s ease;
-}
-
-/* Blur */
-.blur:hover {
+.filter-examples {
+    /* Blur */
     filter: blur(5px);
-}
-
-/* Brightness */
-.brightness:hover {
-    filter: brightness(1.5);
-}
-
-/* Contrast */
-.contrast:hover {
-    filter: contrast(1.5);
-}
-
-/* Grayscale */
-.grayscale:hover {
-    filter: grayscale(100%);
-}
-
-/* Hue rotate */
-.hue-rotate:hover {
-    filter: hue-rotate(90deg);
-}
-
-/* Invert */
-.invert:hover {
-    filter: invert(100%);
-}
-
-/* Opacity */
-.opacity:hover {
-    filter: opacity(0.5);
-}
-
-/* Saturate */
-.saturate:hover {
-    filter: saturate(2);
-}
-
-/* Sepia */
-.sepia:hover {
-    filter: sepia(100%);
-}
-
-/* Multiple filters */
-.multiple-filters:hover {
-    filter: blur(2px) brightness(1.2) contrast(1.1) saturate(1.3);
+    
+    /* Brightness */
+    filter: brightness(150%); /* Brighter */
+    filter: brightness(50%);  /* Darker */
+    
+    /* Contrast */
+    filter: contrast(200%);   /* Higher contrast */
+    filter: contrast(50%);    /* Lower contrast */
+    
+    /* Grayscale */
+    filter: grayscale(100%);  /* Full grayscale */
+    filter: grayscale(50%);   /* Partial grayscale */
+    
+    /* Hue Rotation */
+    filter: hue-rotate(90deg); /* Shift colors */
+    
+    /* Invert */
+    filter: invert(100%);     /* Negative effect */
+    
+    /* Opacity */
+    filter: opacity(50%);     /* Similar to opacity property */
+    
+    /* Saturate */
+    filter: saturate(200%);   /* More vibrant */
+    filter: saturate(50%);    /* Less vibrant */
+    
+    /* Sepia */
+    filter: sepia(100%);      /* Vintage effect */
+    
+    /* Multiple Filters */
+    filter: blur(2px) brightness(1.2) contrast(1.1) hue-rotate(45deg);
+    
+    /* Drop Shadow (different from box-shadow) */
+    filter: drop-shadow(5px 5px 10px rgba(0, 0, 0, 0.5));
 }
 ```
 
+#### Benefits of CSS Filters
+- **Real-time Effects**: No image preprocessing needed
+- **Performance**: Hardware-accelerated filtering
+- **Non-destructive**: Original element remains unchanged
+- **Combination**: Multiple filters can be stacked
+
+#### Why Use CSS Filters?
+- Create hover effects on images
+- Implement dark mode transitions
+- Add visual feedback to interactive elements
+- Create thematic color schemes
+
 ### Backdrop Filters
+
+#### What are Backdrop Filters?
+Backdrop filters apply filter effects to the area behind an element, creating glassmorphism and frosted glass effects.
+
+#### Implementation and Usage
 ```css
-/* Backdrop filter for glassmorphism effect */
-.glassmorphism {
+/* Glassmorphism Effect */
+.glass-card {
     background: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.2);
     border-radius: 12px;
-    padding: 2rem;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
 }
 
-/* Modal overlay with backdrop filter */
-.modal-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.3);
+/* Frosted Glass Navigation */
+.nav-glass {
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(20px) saturate(180%);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* Modal Overlay */
+.modal-backdrop {
+    background: rgba(0, 0, 0, 0.5);
     backdrop-filter: blur(5px);
-    display: flex;
-    align-items: center;
-    justify-content: center;
 }
 
-.modal-content {
-    background: white;
-    border-radius: 8px;
-    padding: 2rem;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+/* Backdrop Filter Properties */
+.element {
+    backdrop-filter: blur(10px);              /* Blur background */
+    backdrop-filter: brightness(60%);         /* Darken background */
+    backdrop-filter: contrast(40%);           /* Reduce contrast */
+    backdrop-filter: grayscale(100%);         /* Grayscale background */
+    
+    /* Multiple backdrop filters */
+    backdrop-filter: blur(10px) brightness(0.8) saturate(1.2);
+    
+    /* Fallback for unsupported browsers */
+    background: rgba(255, 255, 255, 0.9); /* Solid fallback */
+}
+
+@supports (backdrop-filter: blur(10px)) {
+    .element {
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+    }
 }
 ```
 
+#### Benefits of Backdrop Filters
+- **Modern Aesthetics**: Create trendy glassmorphism effects
+- **Context Awareness**: Elements blend with their background
+- **Performance**: Hardware-accelerated when supported
+- **Depth Creation**: Establish visual hierarchy through blur
+
+#### Why Use Backdrop Filters?
+- Implement modern design trends
+- Create floating navigation elements
+- Build immersive modal dialogs
+- Enhance depth perception in interfaces
+
 ## CSS Custom Properties (Variables)
 
-### Dynamic Theming
+### What are CSS Custom Properties?
+CSS custom properties (CSS variables) are entities defined by CSS authors that contain specific values to be reused throughout a document.
+
+### Implementation and Usage
 ```css
-/* CSS custom properties for theming */
+/* Global Variables */
 :root {
+    /* Color System */
     --primary-color: #007bff;
     --secondary-color: #6c757d;
     --success-color: #28a745;
-    --danger-color: #dc3545;
-    --warning-color: #ffc107;
-    --info-color: #17a2b8;
     
-    --font-family: 'Inter', sans-serif;
+    /* Typography */
+    --font-family-base: 'Inter', sans-serif;
     --font-size-base: 1rem;
-    --font-size-lg: 1.125rem;
-    --font-size-sm: 0.875rem;
+    --line-height-base: 1.5;
     
-    --spacing-xs: 0.25rem;
-    --spacing-sm: 0.5rem;
-    --spacing-md: 1rem;
-    --spacing-lg: 1.5rem;
-    --spacing-xl: 3rem;
+    /* Spacing */
+    --spacing-unit: 1rem;
+    --spacing-xs: calc(var(--spacing-unit) * 0.25);
+    --spacing-sm: calc(var(--spacing-unit) * 0.5);
+    --spacing-lg: calc(var(--spacing-unit) * 1.5);
+    --spacing-xl: calc(var(--spacing-unit) * 3);
     
+    /* Layout */
     --border-radius: 0.375rem;
     --border-radius-lg: 0.5rem;
-    --border-radius-xl: 1rem;
+    --box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
     
-    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
-    --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
-    --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+    /* Transitions */
+    --transition-base: all 0.3s ease;
+    --transition-fast: all 0.15s ease;
 }
 
-/* Dark theme */
+/* Component Usage */
+.button {
+    background-color: var(--primary-color);
+    color: white;
+    padding: var(--spacing-sm) var(--spacing-unit);
+    border-radius: var(--border-radius);
+    font-family: var(--font-family-base);
+    font-size: var(--font-size-base);
+    transition: var(--transition-base);
+}
+
+.button:hover {
+    background-color: color-mix(in srgb, var(--primary-color) 80%, black);
+    transform: translateY(-1px);
+}
+
+/* Dynamic Theme Switching */
 [data-theme="dark"] {
     --primary-color: #0d6efd;
-    --secondary-color: #6c757d;
-    --success-color: #198754;
-    --danger-color: #dc3545;
-    --warning-color: #fd7e14;
-    --info-color: #0dcaf0;
-    
     --bg-color: #212529;
     --text-color: #ffffff;
     --border-color: #495057;
 }
 
-/* Component using CSS variables */
-.button {
-    background-color: var(--primary-color);
-    color: white;
-    padding: var(--spacing-sm) var(--spacing-md);
-    border-radius: var(--border-radius);
-    font-family: var(--font-family);
-    font-size: var(--font-size-base);
-    box-shadow: var(--shadow-sm);
-    border: none;
-    cursor: pointer;
-    transition: all 0.3s ease;
+[data-theme="light"] {
+    --primary-color: #007bff;
+    --bg-color: #ffffff;
+    --text-color: #212529;
+    --border-color: #dee2e6;
 }
 
-.button:hover {
-    background-color: color-mix(in srgb, var(--primary-color) 80%, black);
-    box-shadow: var(--shadow-md);
-    transform: translateY(-1px);
-}
-
-/* Dynamic color generation */
-.color-palette {
-    --base-hue: 200;
-    --color-1: hsl(var(--base-hue), 70%, 50%);
-    --color-2: hsl(calc(var(--base-hue) + 60), 70%, 50%);
-    --color-3: hsl(calc(var(--base-hue) + 120), 70%, 50%);
-    --color-4: hsl(calc(var(--base-hue) + 180), 70%, 50%);
-    --color-5: hsl(calc(var(--base-hue) + 240), 70%, 50%);
-    --color-6: hsl(calc(var(--base-hue) + 300), 70%, 50%);
-}
-
-.palette-item {
-    width: 100px;
-    height: 100px;
-    border-radius: var(--border-radius);
-}
-
-.palette-item:nth-child(1) { background-color: var(--color-1); }
-.palette-item:nth-child(2) { background-color: var(--color-2); }
-.palette-item:nth-child(3) { background-color: var(--color-3); }
-.palette-item:nth-child(4) { background-color: var(--color-4); }
-.palette-item:nth-child(5) { background-color: var(--color-5); }
-.palette-item:nth-child(6) { background-color: var(--color-6); }
+/* JavaScript Integration */
+const root = document.documentElement;
+root.style.setProperty('--primary-color', '#ff0000');
 ```
 
-## Exercise: Advanced CSS Features Showcase
+### Benefits of CSS Custom Properties
+- **Maintainability**: Change values in one place, update everywhere
+- **Dynamic Updates**: Modify values with JavaScript
+- **Theme Switching**: Easy light/dark mode implementation
+- **Scoped Variables**: Component-specific theming
+- **Calculation Support**: Dynamic value calculations
 
-Create a showcase of advanced CSS features:
-- Interactive animations and transitions
-- 3D transform effects and card flips
-- Filter effects and glassmorphism
-- Dynamic theming with CSS variables
-- Responsive animations that adapt to screen size
-- Performance-optimized animations
+### Why Use CSS Custom Properties?
+- Create consistent design systems
+- Implement dynamic theming
+- Reduce CSS duplication
+- Enable runtime style changes
+- Improve code organization
 
-## Key Takeaways
-- Transitions provide smooth property changes
-- Animations create complex, repeating effects
-- Transforms enable 2D and 3D transformations
-- Filters add visual effects to elements
-- Backdrop filters create glassmorphism effects
-- CSS custom properties enable dynamic theming
-- Use transform and opacity for performant animations
-- Consider reduced motion preferences
-- Test animations on different devices
-- Use will-change property for optimization
+## Advanced Layout Techniques
+
+### CSS Grid Advanced Features
+```css
+.container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-auto-rows: minmax(100px, auto);
+    gap: var(--spacing-unit);
+    
+    /* Advanced Grid Properties */
+    grid-auto-flow: dense; /* Fill gaps automatically */
+    align-items: start;
+    justify-items: center;
+}
+
+/* Subgrid Support */
+.grid-item {
+    display: grid;
+    grid-template-columns: subgrid;
+    grid-column: span 2;
+}
+
+/* Masonry Layout */
+.masonry-grid {
+    grid-template-rows: masonry; /* Experimental */
+}
+```
+
+### Flexbox Advanced Features
+```css
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-unit);
+    
+    /* Advanced Flexbox */
+    align-content: space-between;
+    justify-content: center;
+}
+
+.flex-item {
+    flex: 1 1 300px; /* grow, shrink, basis */
+    
+    /* Advanced Flex Properties */
+    flex-grow: 0;
+    flex-shrink: 1;
+    flex-basis: auto;
+    
+    align-self: center;
+    order: 2; /* Change visual order */
+}
+```
+
+## Performance Optimization
+
+### Optimizing Animations and Transitions
+```css
+/* Performance Best Practices */
+.optimized-element {
+    /* Use transform and opacity for animations */
+    transform: translateZ(0); /* Force hardware acceleration */
+    will-change: transform, opacity; /* Hint browser for optimization */
+    
+    /* Optimized properties */
+    transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* Avoid these properties in animations */
+.expensive-animation {
+    /* These trigger layout recalculations */
+    transition: width 0.3s ease, height 0.3s ease;
+    
+    /* Better alternative */
+    transition: transform 0.3s ease;
+}
+```
+
+### Reduced Motion Support
+```css
+/* Respect user motion preferences */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+    
+    .reduced-motion {
+        animation: none;
+        transition: none;
+    }
+}
+```
+
+## Browser Support and Fallbacks
+
+### Feature Detection with @supports
+```css
+/* Check for feature support */
+@supports (backdrop-filter: blur(10px)) {
+    .modern-effect {
+        backdrop-filter: blur(10px);
+    }
+}
+
+@supports not (backdrop-filter: blur(10px)) {
+    .modern-effect {
+        background: rgba(255, 255, 255, 0.9);
+    }
+}
+
+/* Progressive Enhancement */
+.card {
+    /* Basic styles */
+    background: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+@supports (backdrop-filter: blur(10px)) {
+    .card {
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+    }
+}
+```
+
+## Best Practices Summary
+
+1. **Performance First**: Use transform and opacity for animations
+2. **Progressive Enhancement**: Provide fallbacks for unsupported features
+3. **Accessibility**: Respect reduced motion preferences
+4. **Maintainability**: Use CSS custom properties for consistency
+5. **Testing**: Test animations and effects across devices
+6. **Performance Monitoring**: Use browser dev tools to check animation performance
+7. **User Experience**: Ensure animations enhance rather than distract
+
+## Conclusion
+
+Advanced CSS features empower developers to create sophisticated, engaging user interfaces with excellent performance and maintainability. By mastering transitions, animations, transforms, filters, and CSS custom properties, you can build modern web experiences that rival native applications in visual quality and interactivity.
+
+Remember to always prioritize user experience, test across devices and browsers, and use these powerful features judiciously to enhance rather than overwhelm your designs.

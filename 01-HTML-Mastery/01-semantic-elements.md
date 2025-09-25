@@ -94,7 +94,7 @@ These elements create the fundamental structure of web pages, organizing content
                     <li><a href="#">HTML5 Accessibility Features</a></li>
                     <li><a href="#">CSS Grid with Semantic HTML</a></li>
                     <li><a href="#">ARIA Landmarks and Semantic Elements</a></li>
-                </ul>
+            </ul>
             </nav>
         </aside>
     </main>
@@ -102,12 +102,12 @@ These elements create the fundamental structure of web pages, organizing content
     <!-- Site Footer -->
     <footer role="contentinfo">
         <div class="footer-content">
-            <address>
+        <address>
                 <strong>Web Development Academy</strong><br>
                 123 Tech Street<br>
                 San Francisco, CA 94102<br>
                 <a href="mailto:info@webdevacademy.com">info@webdevacademy.com</a>
-            </address>
+        </address>
             
             <nav aria-label="Footer navigation">
                 <ul>
@@ -233,8 +233,8 @@ These elements structure and give meaning to text content, making it more access
     &lt;/header&gt;
     &lt;p&gt;Article content...&lt;/p&gt;
 &lt;/article&gt;
-    </code></pre>
-    
+</code></pre>
+
     <p>The <kbd>Ctrl + S</kbd> keyboard shortcut saves your document.</p>
 </section>
 
@@ -336,9 +336,9 @@ Inline semantic elements provide specific meaning to words or phrases within lar
     <a href="#disclosure">disclosure policy</a> for more information.</small></p>
     
     <p>According to <cite>Albert Einstein</cite> in his famous equation:</p>
-    <blockquote>
+<blockquote>
         <p>E = mc<sup>2</sup></p>
-    </blockquote>
+</blockquote>
     
     <p>To edit a file in Vim, press <kbd>i</kbd> to enter insert mode, 
     make your changes, then press <kbd>Esc</kbd> followed by 
@@ -608,7 +608,7 @@ Semantic elements specifically designed for media content that provide better ac
 <!-- Good: Proper heading hierarchy -->
 <h1>Page Title</h1>
 <section>
-    <h2>Section Title</h2>
+<h2>Section Title</h2>
     <article>
         <h3>Article Title</h3>
     </article>
